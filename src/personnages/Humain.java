@@ -23,7 +23,7 @@ public class Humain {
 	}
 	
 	public void parler(String phrase) {
-		System.out.println(phrase);
+		System.out.println("(" + nom + ") - " + phrase);
 	}
 	
 	public void direBonjour() {
