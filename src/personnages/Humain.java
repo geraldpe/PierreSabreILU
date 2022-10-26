@@ -22,7 +22,7 @@ public class Humain {
 		return boisson_favorite;
 	}
 	
-	private void parler(String phrase) {
+	public void parler(String phrase) {
 		System.out.println(phrase);
 	}
 	
@@ -35,11 +35,11 @@ public class Humain {
 		
 	}
 	
-	private void gagnerArgent(int gain) {
+	public void gagnerArgent(int gain) {
 		argent += gain;
 	}
 	
-	private void perdreArgent(int perte) {
+	public void perdreArgent(int perte) {
 		argent -= perte;
 	}
 	
