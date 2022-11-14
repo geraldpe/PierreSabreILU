@@ -10,10 +10,6 @@ public class Yakuza extends Humain {
 		this.reputation = 0;
 	}
 	
-	private void addReputation() {
-		reputation++;
-	}
-	
 	public String getClan() {
 		return clan;
 	}
@@ -28,20 +24,26 @@ public class Yakuza extends Humain {
 		int gain = victime.seFaireExtorquer();
 		super.gagnerArgent(gain);
 		super.parler("haha j'ai gagné " + gain + " sous " + " maintenant j'ai " + super.getArgent());
-		addReputation();
+		reputation++;
 	}
 	
 	public int perdre() {
-		int argent_perdu = super.getArgent();
-		super.perdreArgent(argent_perdu);
-		addReputation();
-		super.parler("j'ai perdu mon duel et mes " + argent_perdu + " sous, snif... J'ai déshonoré " + getClan());
-		return argent_perdu;
+		int argentPerdu = super.getArgent();
+		super.perdreArgent(argentPerdu);
+		reputation++;
+		super.parler("j'ai perdu mon duel et mes " + argentPerdu + " sous, snif... J'ai déshonoré " + getClan());
+		return argentPerdu;
 	}
 	
 	public void gagner(int gain) {
 		super.gagnerArgent(gain);
-		addReputation();
+		reputation++;
 		super.parler("ce Ronin pensait vraiment battre " + super.getNom() + " du " + getClan() + " ? Je l'ai dépouillé de ses " + gain + " sous");
+	}
+	
+	@Override
+	public void direBonjour() {
+		super.direBonjour();
+		super.parler("Mon clan est celui de " + getClan());
 	}
 }

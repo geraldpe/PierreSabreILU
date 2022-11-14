@@ -12,14 +12,14 @@ public class Ronin extends Humain {
 		return honneur;
 	}
 	
-	private int calculer_dix_pourcent_monney() {
+	private int calculerDixPercentMonney() {
 		return getArgent()*10/100;
 	}
 	
 	public void donner(Commercant beneficiaire) {
-		int a_donner = calculer_dix_pourcent_monney();
-		super.parler(beneficiaire.getNom() + " prend ces " + a_donner + " sous");
-		beneficiaire.recevoir(a_donner);
+		int aDonner = calculerDixPercentMonney();
+		super.parler(beneficiaire.getNom() + " prend ces " + aDonner + " sous");
+		beneficiaire.recevoir(aDonner);
 	}
 	
 	public void provoquer(Yakuza adversaire) {
@@ -27,13 +27,13 @@ public class Ronin extends Humain {
 		super.parler("Je t'ai retrouvé vermine, tu vas payer pour ce que tu as fait à ce pauvre marchand!");
 		if (force >= adversaire.getReputation()) {
 			super.parler("Je t'ai eu petit Yakuza !");
-			int argent_gagne = adversaire.perdre();
+			int argentGagne = adversaire.perdre();
 			honneur++;
-			super.gagnerArgent(argent_gagne);	
+			super.gagnerArgent(argentGagne);	
 		} else {
 			super.parler("J'ai perdu contre ce Yakuza, mon honneur et ma bourse en ont pris un coup.");
-			int argent_perdu = super.getArgent();
-			adversaire.gagner(argent_perdu);
+			int argentPerdu = super.getArgent();
+			adversaire.gagner(argentPerdu);
 			honneur--;
 		}
 	}
