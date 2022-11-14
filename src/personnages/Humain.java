@@ -2,7 +2,7 @@ package personnages;
 
 public class Humain {
 	private String nom;
-	private String boissonFavorite;
+	public String boissonFavorite;
 	private int argent;
 	protected int nbConnaissance;
 	private Humain[] memoire;
